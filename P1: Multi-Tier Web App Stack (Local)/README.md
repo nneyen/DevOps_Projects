@@ -46,7 +46,7 @@ Next is the Architecture for the Automation Stack
  - Clone source code 
  - cd into the vargrant dir
  - Bring up VM's using vagrant file
- - Vlidate all VMs
+ - Validate all VMs
  - Setup all services
  - Build and Deploy Application
  - Verify
