@@ -29,14 +29,16 @@ In this step we are going to bring up all VMs using the ` vagrant up ` command.
 - first we will go to the directory where the vagrant file exists the file name is vagrantFile
 
 - next install the vagrant plug in using the command 
-```vagrant plugin install vagrant-hostmanager
+```
+vagrant plugin install vagrant-hostmanager
 ```
 - then you can run the command to bring up the VMs
-```vagrant up
 ```
-After a few minutes, you can check to see if your VMs are running. This usually takes a while so you have to be patient. It should look like this when it up and running
-![Vagrant Up Result](images/vm-running.png)
+vagrant up
+```
+After a few minutes, you can check to see if your VMs are running. This usually takes a while so you have to be patient. It should look like this when it is up and running : 
 
+![Vagrant Up Result](images/vm-running.png)
 
 
 * Next we will verify that our VMS by pinging each one. To do that, we will ssh into each VM using this command `vagrant ssh <vm_name>`. The VM name is in the VagrantFile
