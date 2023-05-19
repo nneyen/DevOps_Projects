@@ -3,12 +3,20 @@
 
 In this project, we will learn to set up a multi-tier Web App Locally.  This project is originally created by Imran Teli and can be found [here](https://www.udemy.com/course/devopsprojects/?src=sac&kw=devops+projects)
 
+**Objective**
+At the end of this project, I learned how to 
+- Setup VM Automation Locally
+- Setup a real world project on my local machine for R & D
+
 ## Prerequisites
 Before beginning, Install the following
 
 * Hypervisor - Oracle VM Box
 * Vagrant
-* CLI - We will use git
+* Git
+* Maven
+* jdk8
+* awscli
 * An IDE of your choice, I use VSCode
 
 Next clone the git repository
@@ -17,8 +25,30 @@ Next clone the git repository
 ```
 
 ## Architecture
-This first architecture (redrawn from original) shows the general overview of the project. 
+- This first architecture (redrawn from original) shows the general overview of the project. Whenever you begin any project, it is important to understand the flow of the stack
 ![Architecture](images/p1-architecture.png)
+
+**Key things to note**: 
+- This application in Developed in Java, hence we will use Tomcat as our webapp service
+- NFS is external storage ( this is not implement in this current execution)
+- NGINX creates a load balancer experience 
+- Memcache provides caching for database
+- MySQL hold log in details
+- RabbitMQ is the message broker
+
+- Next is the Architecture for the Automation Stack
+![Automation Stack](images/automation-stack.png)
+
+**The Flow of Execution is as Follows**
+ - clone source code 
+ - cd into the vargrant dir
+ - bring up VM's using vagrant file
+ - validate all VMs
+ - Setup all services
+ - Build and Deploy Application
+ - Verify
+
+
 
 ## Step 1 : Setup VM
 
@@ -99,7 +129,7 @@ We are going to validate our website from the browser
 ![App Validation](images/db_validation.png)
 - Click on RabbitMQ to validate it
 ![RBMQ Validation](images/rbmq_validation.png)
-- Click on users to validate data coming in from cache
+- Click on all users to validate data coming in from cache
 ![DB Validation](images/validate-cache.png)
 
 At this point, I think we have completed the project. You can go ahead and destroy all your beautiful work
