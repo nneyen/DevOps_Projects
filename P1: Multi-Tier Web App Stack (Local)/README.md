@@ -27,6 +27,7 @@ https://github.com/nneyen/vprofile-project.git
 
 ## Architecture
 - This first architecture (redrawn from original) shows the general overview of the project. Whenever you begin any project, it is important to understand the flow of the stack
+
 ![Architecture](images/p1-architecture.png)
 
 **Key things to note**: 
@@ -37,14 +38,15 @@ https://github.com/nneyen/vprofile-project.git
 - MySQL hold log in details
 - RabbitMQ is the message broker
 
-- Next is the Architecture for the Automation Stack
+Next is the Architecture for the Automation Stack
+
 ![Automation Stack](images/automation-stack.png)
 
-**The Flow of Execution is as Follows**
- - clone source code 
+**The Flow of Execution is as Follows**:
+ - Clone source code 
  - cd into the vargrant dir
- - bring up VM's using vagrant file
- - validate all VMs
+ - Bring up VM's using vagrant file
+ - Vlidate all VMs
  - Setup all services
  - Build and Deploy Application
  - Verify
