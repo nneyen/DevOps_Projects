@@ -62,7 +62,8 @@ vagrant ssh web01
 ## Step 2: Provisioning Services
 ![Web Architecture](images/vprofile-web-architecture.png)
 
-* We will now provision 6 services in total and in the order mentioned below
+* We will now provision 6 services in total and in the order mentioned below:
+
 |Service|Description|
 |-------|-----------|
 |MySQL | Database Service|
