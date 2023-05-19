@@ -45,7 +45,8 @@ After a few minutes, you can check to see if your VMs are running. This usually 
 
 *Because of the plug in we installed earlier, all the vm hostnames and `/etc/hosts` will be automaticall updated. To confirm run the command `cat /etc/hosts`*
 
-```vagrant ssh web01
+```
+vagrant ssh web01
 ```
 * ping app01 from web01 using the command `ping app01`. Remember that according to the diagram, Web tier communicates with the app tier
 ![ping app01](images/ping_app01.png)
@@ -71,8 +72,47 @@ After a few minutes, you can check to see if your VMs are running. This usually 
 - ssh to the database vm using the command `vagrant ssh db01`
 - follow the steps found in this setup file [mysql.md](setup/mysql.md)
 ### Step 2b : Provisioning Memcache (Db Caching SVC)
-- ssh to the memcach vm using the command `vagrant ssh mc01`
+- ssh to the memcache vm using the command `vagrant ssh mc01`
 - follow the steps found in this setup file [memcache.md](setup/memcache.md)
+
+### Step 2c : Provisioning RabbitMQ (Message Brokering SVC)
+- ssh to the rabbitmq vm using the command `vagrant ssh rmq01`
+- follow the steps found in this setup file [rabbitmq.md](setup/rabbitmq.md)
+
+We are done with setting up our backend let's move to the app setup
+### Step 2c : Provisioning Tomcat (App SVC)
+- ssh to the tomcat vm using the command `vagrant ssh app01`
+- follow the steps found in this setup file [tomcat.md](setup/tomcat.md)
+
+Finally we setup our load balancer
+### Step 2d: Provisioning NGINX ( Web SVC)
+- ssh to the web server vm using the command `vagrant ssh web01`
+- follow the steps found in this setup file [nginx.md](setup/nginx.md)
+
+# Step 3 : Verify Website from Browser
+We are going to validate our website from the browser
+- first in `web01` run `ifconfig` to get the IP address of web01
+- Check that NGINX is running on your browser using the url `http://<IP_of_web01>`. This page should come up:
+![Nginx Validation](images/nginx_validation.png)
+- Check database validation by signing in using the credentials `admin_vp` for both username and password
+- Validate that your app is running on Tomcat
+![App Validation](images/db_validation.png)
+- Click on RabbitMQ to validate it
+![RBMQ Validation](images/rbmq_validation.png)
+- Click on users to validate data coming in from cache
+![DB Validation](images/validate-cache.png)
+
+At this point, I think we have completed the project. You can go ahead and destroy all your beautiful work
+
+# Step 4 : Cleanup
+To clean up simply navigate out of `web01` into the `Manual_Provisioning` folder and then run the command
+```
+vagrant destroy
+```
+![Vagrant Destro](images/vagrant_destroy.png)
+This should take a while but all of the resources will be pulled down. Well done. 
+
+
 
 
 

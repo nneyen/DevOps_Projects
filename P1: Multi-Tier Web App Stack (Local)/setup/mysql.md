@@ -1,4 +1,5 @@
-## MySQL Setup
+# MySQL Setup
+NOTE: This uses CENTOS
 1. switch to root user and update all packages. Updating OS with the latest patches is good practice.
 ```
 sudo su -
