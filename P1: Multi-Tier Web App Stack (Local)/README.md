@@ -21,7 +21,8 @@ Before beginning, Install the following
 
 Next clone the git repository
 
-```https://github.com/nneyen/vprofile-project.git
+```
+https://github.com/nneyen/vprofile-project.git
 ```
 
 ## Architecture
