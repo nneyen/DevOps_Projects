@@ -13,11 +13,8 @@ Before beginning, Install the following
 
 Next clone the git repository
 
+```https://github.com/nneyen/vprofile-project.git
 ```
-https://github.com/nneyen/vprofile-project.git
-
-```
-
 
 ## Architecture
 This first architecture (redrawn from original) shows the general overview of the project. 
@@ -32,13 +29,10 @@ In this step we are going to bring up all VMs using the ` vagrant up ` command.
 - first we will go to the directory where the vagrant file exists the file name is vagrantFile
 
 - next install the vagrant plug in using the command 
-```
-vagrant plugin install vagrant-hostmanager
+```vagrant plugin install vagrant-hostmanager
 ```
 - then you can run the command to bring up the VMs
-```
-vagrant up
-
+```vagrant up
 ```
 After a few minutes, you can check to see if your VMs are running. This usually takes a while so you have to be patient. It should look like this when it up and running
 ![Vagrant Up Result](images/vm-running.png)
@@ -49,8 +43,7 @@ After a few minutes, you can check to see if your VMs are running. This usually 
 
 *Because of the plug in we installed earlier, all the vm hostnames and `/etc/hosts` will be automaticall updated. To confirm run the command `cat /etc/hosts`*
 
-```
-vagrant ssh web01
+```vagrant ssh web01
 ```
 * ping app01 from web01 using the command `ping app01`. Remember that according to the diagram, Web tier communicates with the app tier
 ![ping app01](images/ping_app01.png)
@@ -62,7 +55,7 @@ vagrant ssh web01
 ## Step 2: Provisioning Services
 ![Web Architecture](images/vprofile-web-architecture.png)
 
-* We will now provision 6 services in total and in the order mentioned below:
+* We will now provision 6 services in total and in the order mentioned below: In this order we are setting up backend services first and then the application service and then web service last
 
 |Service|Description|
 |-------|-----------|
@@ -71,6 +64,14 @@ vagrant ssh web01
 |Rabbit MQ| Messaging Brokering Agent|
 |Tomcat| Application Service|
 |Nginx| Web Service |
+
+### Step 2a : Provisioning MySQL (Database SVC)
+- ssh to the database vm using the command `vagrant ssh db01`
+- follow the steps found in this setup file [mysql.md](setup/mysql.md)
+### Step 2b : Provisioning Memcache (Db Caching SVC)
+- ssh to the memcach vm using the command `vagrant ssh mc01`
+- follow the steps found in this setup file [memcache.md](setup/memcache.md)
+
 
 
 
