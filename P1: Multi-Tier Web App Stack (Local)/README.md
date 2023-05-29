@@ -142,7 +142,7 @@ To clean up simply navigate out of `web01` into the `Manual_Provisioning` folder
 ```
 vagrant destroy
 ```
-![Vagrant Destro](images/vagrant_destroy.png)
+![Vagrant Destroy](images/vagrant_destroy.png)
 This should take a while but all of the resources will be pulled down. Well done. 
 
 
